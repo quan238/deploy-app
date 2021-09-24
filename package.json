@@ -1,0 +1,50 @@
+{
+  "name": "rest-express",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "seed": "prisma db seed --preview-feature",
+    "dev": "nodemon -r dotenv/config --trace-warnings --experimental-modules src/app.js",
+    "lint": "eslint 'src/*.{js,jsx}'",
+    "format": "prettier-eslint 'server/**/*.{js,json}' --write"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.0.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.23.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12",
+    "prettier-eslint-cli": "^5.0.1",
+    "prisma": "3.0.2"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
