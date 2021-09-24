@@ -17,5 +17,5 @@ router.use('/courses', coursesList);
 router.use('/courses/tests', testResults);
 
 // Endpoint to login or regsiter and to send the short lived token
-router.use('/login', login);
+// router.use('/login', login);
 export default router;
