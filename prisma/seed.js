@@ -60,31 +60,27 @@ async function main() {
             })),
         },
         tests: {
-          create: course.testing.map((test) => {
-            console.log(test.results);
-
-            return ({
-              name: test.name,
-              date: test.date,
-              updatedAt: test.updatedAt,
-              testResults: {
-                create: test.results.map((testResult) => ({
-                  createdAt: testResult.createdAt,
-                  result: testResult.result,
-                  gradedBy: {
-                    connect: {
-                      email: testResult.gradedBy,
-                    },
+          create: course.testing.map((test) => ({
+            name: test.name,
+            date: test.date,
+            updatedAt: test.updatedAt,
+            testResults: {
+              create: test.results.map((testResult) => ({
+                createdAt: testResult.createdAt,
+                result: testResult.result,
+                gradedBy: {
+                  connect: {
+                    email: testResult.gradedBy,
                   },
-                  student: {
-                    connect: {
-                      email: testResult.student,
-                    },
+                },
+                student: {
+                  connect: {
+                    email: testResult.student,
                   },
-                })),
-              },
-            });
-          }),
+                },
+              })),
+            },
+          })),
         },
       },
     });
