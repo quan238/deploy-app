@@ -1,6 +1,6 @@
 // Mapper for environment variables
-export const environment = process.env.NODE_ENV;
-export const port = process.env.PORT;
+export const environment = process.env.NODE_ENV || 'production';
+export const port = process.env.PORT || 3000;
 
 export const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
 export const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
@@ -13,7 +13,7 @@ export const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
 //   password: process.env.DB_USER_PWD || '',
 // };
 
-export const corsUrl = process.env.CORS_URL;
+export const corsUrl = process.env.CORS_URL || '*';
 
 export const tokenInfo = {
   accessTokenLife: process.env.ACCESS_TOKEN_LIFE || '1h',
